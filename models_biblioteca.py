@@ -6,13 +6,13 @@ from sqlalchemy.orm import declarative_base
 Base = declarative_base()
 
 
-class Autor():
+class Autor(Base):
     __tablename__ = 'autores'
     id = Column(Integer, primary_key=True)
     nome = Column(String(50), nullable=False)
 
 
-class Livro():
+class Livro(Base):
     __tablename__ = 'livros'
     id = Column(Integer, primary_key=True)
     nome = Column(String(100), nullable=False)

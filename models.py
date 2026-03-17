@@ -8,7 +8,7 @@ Base = declarative_base()
 class Curso(Base):
     __tablename__ = 'cursos'
     id = Column(Integer, primary_key=True)
-    nome = Column(String(100), nullabel=False, unique=True)
+    nome = Column(String(100), nullable=False, unique=True)
 
 class Estudante(Base):
     __tablename__ = 'estudantes'

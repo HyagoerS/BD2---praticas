@@ -1,0 +1,3 @@
+-- database: ../escola.db
+
+SELECT * FROM estudantes;

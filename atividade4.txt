@@ -1,0 +1,58 @@
+from sqlalchemy import(
+    create_engine, Column, Integer, String
+)
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()
+
+class Livro(Base):
+    __tablename__ = 'livros'
+    id = Column(Integer, primary_key=True)
+	titulo = Column(String(100), nullable=False)
+    autor = Column(String(50), nullable=False)
+	paginas = Column(Integer, nullable=False)
+
+with Session() as session:
+	livro_1 = Livro(id=1, titulo="Dom Casmurro", autor="Machado de Assis", pagina=100)
+	livro_2 = Livro(id=2, titulo="O Alquimista", autor="Paulo Coelho", pagina=100)
+	
+	session.add(livro_1)
+	session.add(livro_2)
+
+	session.commit()
+
+from sqlachemy import select
+with Session() as session:
+	query = select(Livro).whre(Livro.autor == "Machado de Assis")
+	
+	machado = session.execute(query)scalars().second()
+
+
+	
+
+
+
+from sqlalchemy import(
+    create_engine, Column, Integer, String, Float
+)
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()
+
+class Produto(Base):
+    __tablename__ = 'produtos'
+    id = Column(Integer, primary_key=True)
+	nome = Column(String(100), nullable=False)
+    preco = Column(Integer, nullable=False)
+	
+
+with Session() as session:
+	produto_1 = Produto(id=1, nome="Mouse", preco=50.0)
+	produto_2 = Produto(id=2, nome="Teclado", preco=150.0)
+	produto_3 = Produto(id=3, nome="Monitor", preco=50.0)
+	
+	session.add(produto_1)
+	session.add(produto_2)
+	session.add(produto_3)
+
+	session.commit()
